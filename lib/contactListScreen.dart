@@ -67,14 +67,20 @@ class _ViewContactsScreenState extends State<ViewContactsScreen> {
                             GestureDetector(
                                 onTap: ()async{
                                  await _pickImage();
-                                  setState(() {
+                                  setstate(() {
 
                                   });
                                 },
-                                child: CircleAvatar(
-                                    radius: 32,
-                                    backgroundImage: image!= null ? FileImage(File(image!.path)) : null,
-                                    child: image==null ? Icon(Icons.camera_rear_outlined): null
+                                child:SizedBox(
+                                  height: 80,
+                                  child: Stack(children: [
+                                    CircleAvatar(
+                                        radius: 32,
+                                        backgroundImage: image!= null ? FileImage(File(image!.path)) : null,
+                                        child: image==null ? Icon(Icons.camera_rear_outlined): null
+                                    ),
+                                    Positioned(bottom: -5,right: 2, child: Icon(Icons.add_a_photo,color: Colors.blueGrey,)),
+                                  ],),
                                 )),
 
                             const SizedBox(height: 16),
